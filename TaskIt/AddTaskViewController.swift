@@ -38,8 +38,8 @@ class AddTaskViewController: UIViewController {
 
     @IBAction func addTaskButtonPressed(sender: UIButton) {
         
-        var task = TaskModel(task: taskTextField.text, subtask: subtaskTextField.text, date: dueDatePicker.date)
-        mainVC.taskArray.append(task)
+        var task = TaskModel(task: taskTextField.text, subtask: subtaskTextField.text, date: dueDatePicker.date, completed: false)
+        mainVC.baseArray[0].append(task)
         dismissViewControllerAnimated(true, completion: nil)
     }
 
