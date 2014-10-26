@@ -9,8 +9,6 @@
 import UIKit
 
 class TaskDetailViewController: UIViewController {
-
-    var mainVC: ViewController!
     
     var detailTaskModel: TaskModel!
     
@@ -42,9 +40,14 @@ class TaskDetailViewController: UIViewController {
 
     @IBAction func doneBarButtonItemPressed(sender: UIBarButtonItem) {
         
-        var task = TaskModel(task: taskTextField.text, subtask: subtaskTextField.text, date: dueDatePicker.date, completed: false)
+        let appDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
         
-        mainVC.baseArray[0][mainVC.tableView.indexPathForSelectedRow()!.row] = task
+        detailTaskModel.task = taskTextField.text
+        detailTaskModel.subtask = subtaskTextField.text
+        detailTaskModel.date = dueDatePicker.date
+        detailTaskModel.completed = detailTaskModel.completed
+        
+        appDelegate.saveContext()
         
         navigationController?.popViewControllerAnimated(true)
     }
