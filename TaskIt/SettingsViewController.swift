@@ -18,10 +18,6 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     let kVersionNumber = "1.0"
     
-    let kShouldCapitalizeTaskKey = "shouldCapitalizeTask"
-    let kShouldCompleteNewTodoKey = "completeNewTodo"
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 

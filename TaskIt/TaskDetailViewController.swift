@@ -8,6 +8,11 @@
 
 import UIKit
 
+@objc protocol TaskDetailViewControllerDelegate {
+    optional func taskDetailEdited()
+}
+
+
 class TaskDetailViewController: UIViewController {
     
     var detailTaskModel: TaskModel!
@@ -16,6 +21,7 @@ class TaskDetailViewController: UIViewController {
     @IBOutlet weak var subtaskTextField: UITextField!
     @IBOutlet weak var dueDatePicker: UIDatePicker!
     
+    var delegate: TaskDetailViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +56,8 @@ class TaskDetailViewController: UIViewController {
         appDelegate.saveContext()
         
         navigationController?.popViewControllerAnimated(true)
+        
+        delegate?.taskDetailEdited!()
     }
     
     
