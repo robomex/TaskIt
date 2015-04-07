@@ -21,6 +21,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Background")!)
 
         fetchedResultsController = getFetchedResultsController()
         fetchedResultsController.delegate = self
@@ -120,6 +121,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         
         
+    }
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        cell.backgroundColor = UIColor.clearColor()
     }
     
     
