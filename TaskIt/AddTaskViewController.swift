@@ -46,7 +46,7 @@ class AddTaskViewController: UIViewController {
         
         let appDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
         
-        let managedObjectContext = appDelegate.managedObjectContext
+        let managedObjectContext = ModelManager.instance.managedObjectContext
         
         let entityDescription = NSEntityDescription.entityForName("TaskModel", inManagedObjectContext: managedObjectContext!)
         
@@ -67,7 +67,7 @@ class AddTaskViewController: UIViewController {
             task.completed = false
         }
         
-        appDelegate.saveContext()
+        ModelManager.instance.saveContext()
         
         var request = NSFetchRequest(entityName: "TaskModel")
         var error: NSError? = nil
